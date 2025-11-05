@@ -1,5 +1,5 @@
-defmodule MyApp.Repo do
+defmodule EngramAPI.Repo do
   use Ecto.Repo,
-    otp_app: :my_app,
+    otp_app: :engram_api,
     adapter: Ecto.Adapters.Postgres
 end

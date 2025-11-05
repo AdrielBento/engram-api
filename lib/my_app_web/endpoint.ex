@@ -1,4 +1,4 @@
-defmodule MyAppWeb.Endpoint do
+defmodule EngramAPIWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :my_app
 
   # The session will be stored in the cookie and signed,
@@ -24,7 +24,7 @@ defmodule MyAppWeb.Endpoint do
     at: "/",
     from: :my_app,
     gzip: not code_reloading?,
-    only: MyAppWeb.static_paths()
+    only: EngramAPIWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -50,5 +50,5 @@ defmodule MyAppWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug MyAppWeb.Router
+  plug EngramAPIWeb.Router
 end

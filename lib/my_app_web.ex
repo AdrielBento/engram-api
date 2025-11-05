@@ -1,12 +1,12 @@
-defmodule MyAppWeb do
+defmodule EngramAPIWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use MyAppWeb, :controller
-      use MyAppWeb, :html
+      use EngramAPIWeb, :controller
+      use EngramAPIWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,7 +40,7 @@ defmodule MyAppWeb do
     quote do
       use Phoenix.Controller, formats: [:html, :json]
 
-      use Gettext, backend: MyAppWeb.Gettext
+      use Gettext, backend: EngramAPIWeb.Gettext
 
       import Plug.Conn
 
@@ -80,16 +80,16 @@ defmodule MyAppWeb do
   defp html_helpers do
     quote do
       # Translation
-      use Gettext, backend: MyAppWeb.Gettext
+      use Gettext, backend: EngramAPIWeb.Gettext
 
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import MyAppWeb.CoreComponents
+      import EngramAPIWeb.CoreComponents
 
       # Common modules used in templates
       alias Phoenix.LiveView.JS
-      alias MyAppWeb.Layouts
+      alias EngramAPIWeb.Layouts
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())
@@ -99,9 +99,9 @@ defmodule MyAppWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: MyAppWeb.Endpoint,
-        router: MyAppWeb.Router,
-        statics: MyAppWeb.static_paths()
+        endpoint: EngramAPIWeb.Endpoint,
+        router: EngramAPIWeb.Router,
+        statics: EngramAPIWeb.static_paths()
     end
   end
 

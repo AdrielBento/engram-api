@@ -1,11 +1,11 @@
-defmodule MyAppWeb.Router do
-  use MyAppWeb, :router
+defmodule EngramAPIWeb.Router do
+  use EngramAPIWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, html: {MyAppWeb.Layouts, :root}
+    plug :put_root_layout, html: {EngramAPIWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -14,14 +14,14 @@ defmodule MyAppWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", MyAppWeb do
+  scope "/", EngramAPIWeb do
     pipe_through :browser
 
     get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", MyAppWeb do
+  # scope "/api", EngramAPIWeb do
   #   pipe_through :api
   # end
 
@@ -37,7 +37,7 @@ defmodule MyAppWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: MyAppWeb.Telemetry
+      live_dashboard "/dashboard", metrics: EngramAPIWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end

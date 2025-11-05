@@ -1,4 +1,4 @@
-defmodule MyAppWeb.Telemetry do
+defmodule EngramAPIWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -87,7 +87,7 @@ defmodule MyAppWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {MyAppWeb, :count_users, []}
+      # {EngramAPIWeb, :count_users, []}
     ]
   end
 end

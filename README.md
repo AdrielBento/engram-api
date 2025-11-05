@@ -1,4 +1,4 @@
-# MyApp
+# EngramAPI
 
 To start your Phoenix server:
 

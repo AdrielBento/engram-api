@@ -1,6 +1,6 @@
-defmodule MyApp do
+defmodule EngramAPI do
   @moduledoc """
-  MyApp keeps the contexts that define your domain
+  EngramAPI keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

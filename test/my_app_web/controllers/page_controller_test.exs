@@ -1,5 +1,5 @@
-defmodule MyAppWeb.PageControllerTest do
-  use MyAppWeb.ConnCase
+defmodule EngramAPIWeb.PageControllerTest do
+  use EngramAPIWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

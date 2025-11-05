@@ -1,5 +1,5 @@
-defmodule MyAppWeb.PageController do
-  use MyAppWeb, :controller
+defmodule EngramAPIWeb.PageController do
+  use EngramAPIWeb, :controller
 
   def home(conn, _params) do
     render(conn, :home)

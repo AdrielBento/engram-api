@@ -1,4 +1,4 @@
-defmodule MyAppWeb.CoreComponents do
+defmodule EngramAPIWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -27,7 +27,7 @@ defmodule MyAppWeb.CoreComponents do
 
   """
   use Phoenix.Component
-  use Gettext, backend: MyAppWeb.Gettext
+  use Gettext, backend: EngramAPIWeb.Gettext
 
   alias Phoenix.LiveView.JS
 
@@ -457,9 +457,9 @@ defmodule MyAppWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(MyAppWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(EngramAPIWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(MyAppWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(EngramAPIWeb.Gettext, "errors", msg, opts)
     end
   end
 

@@ -1,9 +1,9 @@
-defmodule MyApp.MixProject do
+defmodule EngramAPI.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :my_app,
+      app: :engram_api,
       version: "0.1.0",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -20,7 +20,7 @@ defmodule MyApp.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {MyApp.Application, []},
+      mod: {EngramAPI.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -85,10 +85,10 @@ defmodule MyApp.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["compile", "tailwind my_app", "esbuild my_app"],
+      "assets.build": ["compile", "tailwind engram_api", "esbuild engram_api"],
       "assets.deploy": [
-        "tailwind my_app --minify",
-        "esbuild my_app --minify",
+        "tailwind engram_api --minify",
+        "esbuild engram_api --minify",
         "phx.digest"
       ],
       precommit: ["compile --warning-as-errors", "deps.unlock --unused", "format", "test"],
