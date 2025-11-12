@@ -5,7 +5,7 @@ config :engram_api, EngramAPI.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "engram_api_dev",
+  database: "engram",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -86,3 +86,5 @@ config :phoenix_live_view,
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
+
+config :open_api_spex, :cache_adapter, OpenApiSpex.Plug.NoneCache

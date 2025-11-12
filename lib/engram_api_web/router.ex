@@ -10,20 +10,26 @@ defmodule EngramAPIWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
-  scope "/", EngramAPIWeb do
+  scope "/" do
+    # Use the default browser stack
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/swaggerui", OpenApiSpex.Plug.SwaggerUI, path: "/api/openapi"
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", EngramAPIWeb do
-  #   pipe_through :api
-  # end
+  pipeline :api do
+    plug :accepts, ["json"]
+    plug OpenApiSpex.Plug.PutApiSpec, module: EngramAPIWeb.ApiSpec
+  end
+
+  scope "/api" do
+    pipe_through :api
+    get "/openapi", OpenApiSpex.Plug.RenderSpec, []
+
+    resources "/collections",
+              EngramAPIWeb.SpacedRetrival.Collections.CollectionController,
+              only: [:create]
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:engram_api, :dev_routes) do

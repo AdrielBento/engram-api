@@ -21,8 +21,14 @@ defmodule EngramAPI.Cards.ReviewLog do
   def changeset(review_log, attrs) do
     review_log
     |> cast(attrs, [
-      :card_id, :rating, :review_datetime, :review_duration,
-      :scheduled_days, :state, :stability, :difficulty
+      :card_id,
+      :rating,
+      :review_datetime,
+      :review_duration,
+      :scheduled_days,
+      :state,
+      :stability,
+      :difficulty
     ])
     |> validate_required([:card_id, :rating, :review_datetime])
     |> foreign_key_constraint(:card_id)

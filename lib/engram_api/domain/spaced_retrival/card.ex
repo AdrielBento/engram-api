@@ -7,7 +7,6 @@ defmodule EngramAPI.Cards.Card do
   schema "cards" do
     field :question, :string
     field :answer, :string
-    field :deck_id, :binary_id
 
     # FSRS fields - matching the ExFsrs struct
     field :state, Ecto.Enum, values: [:learning, :review, :relearning], default: :learning
@@ -18,6 +17,7 @@ defmodule EngramAPI.Cards.Card do
     field :due, :utc_datetime
     field :last_review, :utc_datetime
 
+    belongs_to :deck, EngramAPI.Decks.Deck
     has_many :review_logs, EngramAPI.Cards.ReviewLog
 
     timestamps()
@@ -26,8 +26,16 @@ defmodule EngramAPI.Cards.Card do
   def changeset(card, attrs) do
     card
     |> cast(attrs, [
-      :question, :answer, :deck_id, :state, :step,
-      :stability, :difficulty, :scheduled_days, :due, :last_review
+      :question,
+      :answer,
+      :deck_id,
+      :state,
+      :step,
+      :stability,
+      :difficulty,
+      :scheduled_days,
+      :due,
+      :last_review
     ])
     |> validate_required([:question, :answer, :deck_id])
   end

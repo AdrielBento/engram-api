@@ -6,8 +6,22 @@ defmodule EngramAPI.Cards do
 
   # Default FSRS parameters (you can make these configurable)
   @default_parameters [
-    0.4, 0.6, 2.4, 5.8, 4.93, 0.94, 0.86, 0.01,
-    1.49, 0.14, 0.94, 2.18, 0.05, 0.34, 1.26, 0.29,
+    0.4,
+    0.6,
+    2.4,
+    5.8,
+    4.93,
+    0.94,
+    0.86,
+    0.01,
+    1.49,
+    0.14,
+    0.94,
+    2.18,
+    0.05,
+    0.34,
+    1.26,
+    0.29,
     2.61
   ]
 
@@ -48,12 +62,13 @@ defmodule EngramAPI.Cards do
   def review_card(card_id, rating) when rating in 1..4 do
     with %Card{} = card <- get_card(card_id) do
       # Convert rating integer to atom
-      rating_atom = case rating do
-        1 -> :again
-        2 -> :hard
-        3 -> :good
-        4 -> :easy
-      end
+      rating_atom =
+        case rating do
+          1 -> :again
+          2 -> :hard
+          3 -> :good
+          4 -> :easy
+        end
 
       # Convert our database card to FSRS card structure
       fsrs_card = to_fsrs_card(card)
@@ -62,7 +77,8 @@ defmodule EngramAPI.Cards do
       scheduler = get_scheduler()
 
       # Perform the review using FSRS Scheduler
-      {updated_fsrs_card, review_log} = ExFsrs.Scheduler.review_card(scheduler, fsrs_card, rating_atom)
+      {updated_fsrs_card, review_log} =
+        ExFsrs.Scheduler.review_card(scheduler, fsrs_card, rating_atom)
 
       # Update our database card with the FSRS results
       card_attrs = from_fsrs_card(updated_fsrs_card)
@@ -82,7 +98,6 @@ defmodule EngramAPI.Cards do
       end)
     end
   end
-
 
   defp get_scheduler do
     ExFsrs.Scheduler.new(

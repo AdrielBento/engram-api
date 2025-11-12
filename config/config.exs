@@ -11,6 +11,10 @@ config :engram_api,
   ecto_repos: [EngramAPI.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+config :engram_api, EngramAPI.Repo,
+  migration_primary_key: [name: :id, type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :engram_api, EngramAPIWeb.Endpoint,
   url: [host: "localhost"],
