@@ -1,4 +1,4 @@
-defmodule EngramAPI.Cards.ReviewLog do
+defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.ReviewLog do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -13,7 +13,7 @@ defmodule EngramAPI.Cards.ReviewLog do
     field :stability, :float
     field :difficulty, :float
 
-    belongs_to :card, EngramAPI.Cards.Card
+    belongs_to :card, EngramAPI.Infrastructure.Persistence.SpacedRetrival.Card
 
     timestamps()
   end

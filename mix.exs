@@ -69,7 +69,9 @@ defmodule EngramAPI.MixProject do
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:ex_fsrs, "~> 0.1.0", git: "https://github.com/open-spaced-repetition/ex_fsrs"},
-      {:open_api_spex, "~> 3.21"}
+      {:open_api_spex, "~> 3.21"},
+      {:ex_machina, "~> 2.8.0", only: :test},
+      {:faker, "~> 0.19.0-alpha.1", only: :test}
     ]
   end
 

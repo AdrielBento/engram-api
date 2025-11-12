@@ -1,5 +1,8 @@
-defmodule EngramAPI.Cards.Card do
+defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Card do
   use Ecto.Schema
+
+  alias EngramAPI.Infrastructure.Persistence.SpacedRetrival.{Deck, ReviewLog}
+
   import Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
@@ -17,8 +20,8 @@ defmodule EngramAPI.Cards.Card do
     field :due, :utc_datetime
     field :last_review, :utc_datetime
 
-    belongs_to :deck, EngramAPI.Decks.Deck
-    has_many :review_logs, EngramAPI.Cards.ReviewLog
+    belongs_to :deck, Deck
+    has_many :review_logs, ReviewLog
 
     timestamps()
   end

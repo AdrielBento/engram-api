@@ -1,4 +1,4 @@
-defmodule EngramAPIWeb.SpacedRetrival.Collections.Schema do
+defmodule EngramAPIWeb.SpacedRetrival.Collections.Dto do
   alias OpenApiSpex.Schema
 
   defmodule CreateCollectionParams do

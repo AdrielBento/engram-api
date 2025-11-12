@@ -9,7 +9,7 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Collection do
     field :description, :string
     field :icon, :string
 
-    has_many :decks, EngramAPI.Decks.Deck
+    has_many :decks, EngramAPI.Infrastructure.Persistence.SpacedRetrival.Deck
 
     timestamps()
   end

@@ -2,7 +2,7 @@ defmodule EngramAPIWeb.SpacedRetrival.Collections.CollectionController do
   use EngramAPIWeb, :controller
   use OpenApiSpex.ControllerSpecs
 
-  alias EngramAPIWeb.SpacedRetrival.Collections.Schema.{
+  alias EngramAPIWeb.SpacedRetrival.Collections.Dto.{
     CreateCollectionResponse,
     CreateCollectionParams
   }

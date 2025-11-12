@@ -1,6 +1,7 @@
-defmodule EngramAPI.Decks.Deck do
+defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Deck do
   use Ecto.Schema
   import Ecto.Changeset
+  alias EngramAPI.Infrastructure.Persistence.SpacedRetrival.{Collection, Card}
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
@@ -9,8 +10,8 @@ defmodule EngramAPI.Decks.Deck do
     field :name, :string
     field :icon, :string
 
-    belongs_to :collection, EngramAPI.Collections.Collection
-    has_many :cards, EngramAPI.Cards.Card
+    belongs_to :collection, Collection
+    has_many :cards, Card
 
     timestamps()
   end
