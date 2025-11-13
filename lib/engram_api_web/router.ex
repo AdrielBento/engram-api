@@ -29,6 +29,10 @@ defmodule EngramAPIWeb.Router do
     resources "/collections",
               EngramAPIWeb.SpacedRetrival.Collections.CollectionController,
               only: [:create]
+
+    resources "/decks",
+              EngramAPIWeb.SpacedRetrival.Decks.DeckController,
+              only: [:create]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

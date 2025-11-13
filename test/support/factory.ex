@@ -3,4 +3,5 @@ defmodule EngramAPI.Factory do
 
   use ExMachina.Ecto, repo: EngramAPI.Repo
   use EngramAPI.CollectionFactory
+  use EngramAPI.DeckFactory
 end
