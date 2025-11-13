@@ -17,13 +17,15 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Deck do
     timestamps()
   end
 
-  def changeset(card, attrs) do
-    card
+  def changeset(deck, attrs) do
+    deck
     |> cast(attrs, [
       :name,
       :description,
-      :icon
+      :icon,
+      :collection_id
     ])
-    |> validate_required([:name, :description, :icon])
+    |> validate_required([:name, :description, :icon, :collection_id])
+    |> foreign_key_constraint(:collection_id)
   end
 end
