@@ -31,7 +31,8 @@ defmodule EngramAPI.Domain.SpacedRetrival.Deck do
        description: fetch_attr(attrs, :description),
        icon: fetch_attr(attrs, :icon),
        collection_id: fetch_attr(attrs, :collection_id),
-       inserted_at: Map.get(attrs, :inserted_at) || Map.get(attrs, "inserted_at") || DateTime.utc_now(),
+       inserted_at:
+         Map.get(attrs, :inserted_at) || Map.get(attrs, "inserted_at") || DateTime.utc_now(),
        updated_at: Map.get(attrs, :updated_at) || Map.get(attrs, "updated_at"),
        deleted_at: Map.get(attrs, :deleted_at) || Map.get(attrs, "deleted_at")
      }}

@@ -6,6 +6,7 @@ defmodule EngramAPIWeb.SpacedRetrival.Decks.DeckControllerTest do
   describe "POST /decks" do
     test "creates a deck when params are valid", %{conn: conn} do
       collection = insert(:collection)
+
       params =
         params_for(:deck)
         |> Map.put(:collection_id, collection.id)
