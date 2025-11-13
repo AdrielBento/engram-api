@@ -90,6 +90,10 @@ This is a web application written using the Phoenix web framework.
 ## Architecture guidelines
 - Follow the existing project architecture and layering strictly. New features must adhere to the established patterns and practices
 - Domain logic must reside in the Domain layer, application services in the Application layer, and data access in the Infrastructure layer
+  - The folder `lib/engram_api/domain` contains the Domain layer
+  - The folder `lib/engram_api/application` contains the Application layer
+  - The folder `lib/engram_api/infra` contains the Infrastructure layer
+  - The folder `lib/engram_api/infra/persistence` contains the data access implementations, such as Ecto schemas and repositories
 - Controllers and views should be thin, delegating business logic to the Application layer
 
 ## Testing guidelines
