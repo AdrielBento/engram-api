@@ -19,6 +19,7 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Card do
     field :scheduled_days, :integer
     field :due, :utc_datetime
     field :last_review, :utc_datetime
+    field :deleted_at, :naive_datetime, default: nil
 
     belongs_to :deck, Deck
     has_many :review_logs, ReviewLog

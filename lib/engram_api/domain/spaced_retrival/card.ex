@@ -52,8 +52,7 @@ defmodule EngramAPI.Domain.SpacedRetrival.Card do
        scheduled_days: fetch_attr(attrs, :scheduled_days),
        due: fetch_attr(attrs, :due, DateTime.utc_now()),
        last_review: fetch_attr(attrs, :last_review),
-       inserted_at:
-         fetch_attr(attrs, :inserted_at) || DateTime.utc_now(),
+       inserted_at: fetch_attr(attrs, :inserted_at) || DateTime.utc_now(),
        updated_at: fetch_attr(attrs, :updated_at),
        deleted_at: fetch_attr(attrs, :deleted_at)
      }}
