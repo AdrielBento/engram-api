@@ -1,7 +1,9 @@
 This is a web application written using the Phoenix web framework.
 
 ## Project guidelines
-- Version of Elixir and Erlang/OTP must match the versions specified in the `.tool-versions` file
+- Version of Elixir: 1.19.x
+- Version of Erlang/OTP: 28.x
+- Ignore .tool-versions file if you are not using asdf
 - Use `mix precommit` alias when you are done with all changes and fix any pending issues
 - Use the already included and available `:req` (`Req`) library for HTTP requests, **avoid** `:httpoison`, `:tesla`, and `:httpc`. Req is included by default and is the preferred HTTP client for Phoenix apps
 - Use `mix quality` to run static analysis checks, fix any issues format code before committing
@@ -97,6 +99,10 @@ This is a web application written using the Phoenix web framework.
 - Write tests for both happy paths and edge cases to ensure robustness
 - Create and use `ex_machina` factories for setting up test data consistently
   - Use `faker` for generating realistic test data where applicable
+  - Organize factories in the `test/factories` directory for easy maintenance
+  - Ensure factories are modular and reusable across different test cases
+  - Leverage `setup` blocks in test cases to initialize common test data using factories
+  
 
 
 
