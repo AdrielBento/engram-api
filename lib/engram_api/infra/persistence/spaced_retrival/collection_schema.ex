@@ -8,6 +8,7 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Collection do
     field :name, :string
     field :description, :string
     field :icon, :string
+    field :deleted_at, :naive_datetime, default: nil
 
     has_many :decks, EngramAPI.Infrastructure.Persistence.SpacedRetrival.Deck
 

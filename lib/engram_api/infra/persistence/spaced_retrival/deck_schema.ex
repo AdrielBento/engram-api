@@ -9,6 +9,7 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Deck do
     field :description, :string
     field :name, :string
     field :icon, :string
+    field :deleted_at, :naive_datetime, default: nil
 
     belongs_to :collection, Collection
     has_many :cards, Card
