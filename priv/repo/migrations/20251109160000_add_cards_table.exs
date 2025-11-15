@@ -3,8 +3,9 @@ defmodule EngramAPI.Repo.Migrations.AddCardsTable do
 
   def change do
     create table("cards") do
-      add :question, :string, size: 255
-      add :answer, :string, size: 255
+      add :question, :text
+      add :answer, :text
+      add :hint, :string, size: 255
       add :state, :string, size: 20, null: false, default: "learning"
       add :step, :integer, null: false, default: 0
       add :stability, :float

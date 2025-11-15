@@ -11,6 +11,7 @@ defmodule EngramAPIWeb.SpacedRetrival.Cards.Dto do
       properties: %{
         question: %Schema{type: :string, description: "Prompt/question of the card"},
         answer: %Schema{type: :string, description: "Answer for the card"},
+        hint: %Schema{type: :string, description: "Hint for the card"},
         deck_id: %Schema{type: :string, format: :uuid, description: "Deck identifier"}
       },
       required: [:question, :answer, :deck_id],
@@ -33,6 +34,7 @@ defmodule EngramAPIWeb.SpacedRetrival.Cards.Dto do
         id: %Schema{type: :string, format: :uuid},
         question: %Schema{type: :string},
         answer: %Schema{type: :string},
+        hint: %Schema{type: :string},
         deck_id: %Schema{type: :string, format: :uuid},
         state: %Schema{type: :string, enum: ["learning", "review", "relearning"]},
         step: %Schema{type: :integer},

@@ -10,6 +10,7 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Card do
   schema "cards" do
     field :question, :string
     field :answer, :string
+    field :hint, :string
 
     # FSRS fields - matching the ExFsrs struct
     field :state, Ecto.Enum, values: [:learning, :review, :relearning], default: :learning
@@ -32,6 +33,7 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Card do
     |> cast(attrs, [
       :question,
       :answer,
+      :hint,
       :deck_id,
       :state,
       :step,
