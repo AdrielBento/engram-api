@@ -5,4 +5,5 @@ defmodule EngramAPI.Factory do
   use EngramAPI.CollectionFactory
   use EngramAPI.DeckFactory
   use EngramAPI.CardFactory
+  use EngramAPI.CardTypeFactory
 end

@@ -34,6 +34,10 @@ defmodule EngramAPIWeb.Router do
               EngramAPIWeb.SpacedRetrival.Decks.DeckController,
               only: [:create]
 
+    resources "/card_types",
+              EngramAPIWeb.SpacedRetrival.CardTypes.CardTypeController,
+              only: [:create]
+
     resources "/cards",
               EngramAPIWeb.SpacedRetrival.Cards.CardController,
               only: [:create]
