@@ -12,6 +12,15 @@ defmodule EngramAPIWeb.SpacedRetrival.Cards.Dto do
         question: %Schema{type: :string, description: "Prompt/question of the card"},
         answer: %Schema{type: :string, description: "Answer for the card"},
         hint: %Schema{type: :string, description: "Hint for the card"},
+        evaluation_strategy: %Schema{
+          type: :string,
+          enum: ["rubric", "free"],
+          description: "Evaluation strategy for the card"
+        },
+        how_to_evaluate: %Schema{
+          type: :string,
+          description: "Instructions on how to evaluate the answer"
+        },
         deck_id: %Schema{type: :string, format: :uuid, description: "Deck identifier"}
       },
       required: [:question, :answer, :deck_id],
@@ -35,6 +44,8 @@ defmodule EngramAPIWeb.SpacedRetrival.Cards.Dto do
         question: %Schema{type: :string},
         answer: %Schema{type: :string},
         hint: %Schema{type: :string},
+        evaluation_strategy: %Schema{type: :string, enum: ["rubric", "free"]},
+        how_to_evaluate: %Schema{type: :string, nullable: true},
         deck_id: %Schema{type: :string, format: :uuid},
         state: %Schema{type: :string, enum: ["learning", "review", "relearning"]},
         step: %Schema{type: :integer},
@@ -50,6 +61,9 @@ defmodule EngramAPIWeb.SpacedRetrival.Cards.Dto do
         "id" => "550e8400-e29b-41d4-a716-446655440000",
         "question" => "What is the capital of France?",
         "answer" => "Paris",
+        "hint" => "It's also known as the city of lights.",
+        "evaluation_strategy" => "rubric",
+        "how_to_evaluate" => nil,
         "deck_id" => "550e8400-e29b-41d4-a716-446655440000",
         "state" => "learning",
         "step" => 0,

@@ -11,6 +11,8 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Card do
     field :question, :string
     field :answer, :string
     field :hint, :string
+    field :evaluation_strategy, Ecto.Enum, values: [:rubric, :free]
+    field :how_to_evaluate, :string
 
     # FSRS fields - matching the ExFsrs struct
     field :state, Ecto.Enum, values: [:learning, :review, :relearning], default: :learning
@@ -34,6 +36,8 @@ defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Card do
       :question,
       :answer,
       :hint,
+      :evaluation_strategy,
+      :how_to_evaluate,
       :deck_id,
       :state,
       :step,
