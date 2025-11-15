@@ -1,7 +1,7 @@
 defmodule EngramAPI.Infrastructure.Persistence.SpacedRetrival.Deck do
   use Ecto.Schema
   import Ecto.Changeset
-  alias EngramAPI.Infrastructure.Persistence.SpacedRetrival.{Collection, Card}
+  alias EngramAPI.Infrastructure.Persistence.SpacedRetrival.{Card, Collection}
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id

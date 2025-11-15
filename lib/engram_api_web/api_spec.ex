@@ -1,6 +1,6 @@
 defmodule EngramAPIWeb.ApiSpec do
-  alias OpenApiSpex.{Info, OpenApi, Paths, Server}
   alias EngramAPIWeb.{Endpoint, Router}
+  alias OpenApiSpex.{Info, OpenApi, Paths, Server}
   @behaviour OpenApi
 
   @impl OpenApi
